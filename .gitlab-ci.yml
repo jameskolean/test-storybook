@@ -15,8 +15,6 @@ setup:
   artifacts:
     paths:
       - node_modules/
-  script:
-    - npx yarn
 
 # stage: build-and-test (here I run linter, unit tests, and everything I want to build or test)
 
