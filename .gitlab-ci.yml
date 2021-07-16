@@ -47,7 +47,7 @@ deploy-storybook:
   environment:
     name: storybook/$CI_COMMIT_REF_SLUG
     url: https://gitlab.com/jameskolean/test-storybook/$CI_COMMIT_REF_SLUG/storybook/
-    on_stop: remove STORYBOOK
+    on_stop: remove-storybook
   only:
     - branches
 
