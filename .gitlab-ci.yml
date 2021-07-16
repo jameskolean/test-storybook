@@ -1,7 +1,34 @@
 image: node:latest
 
 stages:
+  - deployment
   - pages
+
+deploy-storybook:
+  stage: deployment
+  script:
+    - yarn build-storybook --output-dir public
+  environment:
+    name: storybook/$CI_COMMIT_REF_SLUG
+    url: https://jameskolean.gitlab.io/test-storybook/$CI_COMMIT_REF_SLUG/
+    on_stop: remove-storybook
+  only:
+    - branches
+
+remove-storybook:
+  stage: deployment
+  cache:
+    key: 'my-storybook'
+    paths:
+      - public
+  script:
+    - rm -rf "public/$CI_COMMIT_REF_SLUG/storybook"
+  when: manual
+  variables:
+    GIT_STRATEGY: none # needed to prevent "Couldn't find remote ref" error
+  environment:
+    name: storybook/$CI_COMMIT_REF_SLUG
+    action: stop
 
 pages:
   stage: pages
