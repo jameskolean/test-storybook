@@ -7,7 +7,8 @@ stages:
 deploy-storybook:
   stage: deployment
   script:
-    - yarn build-storybook
+    - yarn
+    - yarn build
   environment:
     name: storybook/$CI_COMMIT_REF_SLUG
     url: https://jameskolean.gitlab.io/test-storybook/$CI_COMMIT_REF_SLUG/
