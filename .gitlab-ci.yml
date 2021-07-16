@@ -6,7 +6,7 @@ stages:
 pages:
   stage: pages
   script:
-    - echo 'Nothing to do...'
+    - cp -R storybook-static/ public
   artifacts:
     paths:
-      - storybook-static
+      - public
