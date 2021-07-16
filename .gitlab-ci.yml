@@ -6,6 +6,11 @@ stages:
 
 deploy-storybook:
   stage: deployment
+  artifacts:
+    expire_in: 1 weeks
+    when: always
+    paths:
+      - public/
   script:
     - yarn
     - yarn build
