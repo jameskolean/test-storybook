@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o web"
+    "build": "build-storybook"
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [
