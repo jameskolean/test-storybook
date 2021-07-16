@@ -10,7 +10,7 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "build-storybook -o public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o public"
   },
   "eslintConfig": {
     "extends": [
