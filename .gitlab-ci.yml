@@ -1,4 +1,4 @@
-image: node:4.2.2
+image: node:6.10.0
 
 stages:
   - setup
@@ -18,7 +18,7 @@ setup:
     paths:
       - node_modules/
   script:
-    - npm install
+    - yarn
 
 # stage: build-and-test (here I run linter, unit tests, and everything I want to build or test)
 
@@ -28,7 +28,7 @@ build:
     paths:
       - dist/
   script:
-    - npm run build
+    - yarn build
 
 storybook:
   stage: build-and-test
@@ -38,7 +38,7 @@ storybook:
     paths:
       - storybook/
   script:
-    - npm run build-storybook --output-dir storybook
+    - yarn build-storybook --output-dir storybook
 
 # stage: deployment (here I deploy my app to specific stages or other artefacts like storybook)
 
