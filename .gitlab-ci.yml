@@ -1,0 +1,17 @@
+image: node:latest
+
+stages:
+  - pages
+
+
+pages:
+  stage: pages
+  cache:
+    key: 'my-storybook'
+    paths:
+      - public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
