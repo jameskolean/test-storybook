@@ -16,7 +16,7 @@ setup:
     paths:
       - node_modules/
   script:
-    - yarn
+    - npx yarn
 
 # stage: build-and-test (here I run linter, unit tests, and everything I want to build or test)
 
