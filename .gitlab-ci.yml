@@ -5,14 +5,8 @@ stages:
 
 pages:
   stage: pages
-  cache:
-    key: 'my-storybook'
-    paths:
-      - public
   script:
     - echo 'Nothing to do...'
   artifacts:
     paths:
       - public
-  only:
-    - master
