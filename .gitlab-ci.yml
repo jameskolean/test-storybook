@@ -1,8 +1,23 @@
 image: node:latest
 
 stages:
+  - setup
   - deployment
   - pages
+
+setup:
+  stage: setup
+  cache:
+    key: 
+      files:
+        - package.json
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      - node_modules/
+  script:
+    - yarn
 
 deploy-storybook:
   stage: deployment
@@ -12,7 +27,7 @@ deploy-storybook:
     paths:
       - public/
   script:
-    - yarn
+    - echo 'building storybook/$CI_COMMIT_REF_SLUG'
     - yarn build
   environment:
     name: storybook/$CI_COMMIT_REF_SLUG
