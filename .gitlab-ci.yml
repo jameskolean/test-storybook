@@ -1,23 +1,8 @@
 image: node:14
 
 stages:
-  - setup
   - deployment
-  - pages
 
-setup:
-  stage: setup
-  cache:
-    key: 
-      files:
-        - package.json
-    paths:
-      - node_modules/
-  artifacts:
-    paths:
-      - node_modules/
-  script:
-    - yarn
 
 deploy-storybook:
   stage: deployment
@@ -35,17 +20,9 @@ deploy-storybook:
     - echo "---------------------------------"
     - echo "---------------------------------"
     - echo "---------------------------------"
-    - yarn build
   environment:
     name: storybook/$CI_COMMIT_REF_SLUG
     url: https://jameskolean.gitlab.io/test-storybook
   only:
     - branches
 
-pages:
-  stage: pages
-  script:
-    - echo 'Nothing to do...'
-  artifacts:
-    paths:
-      - public
