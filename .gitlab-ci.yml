@@ -15,8 +15,9 @@ deploy-storybook:
     - echo "---------------------------------"
     - echo "---------------------------------"
     - echo "---------------------------------"
-    - echo 'building storybook/$CI_COMMIT_REF_SLUG'
-    - echo '$CI_COMMIT_REF_SLUG'
+    - echo "building storybook/$CI_COMMIT_REF_SLUG"
+    - echo "$CI_COMMIT_REF_SLUG"
+    - echo "$CI_JOB_STAGE"
     - echo "---------------------------------"
     - echo "---------------------------------"
     - echo "---------------------------------"
