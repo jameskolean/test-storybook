@@ -1,4 +1,4 @@
-image: node:latest
+image: node:14
 
 stages:
   - setup
@@ -27,7 +27,14 @@ deploy-storybook:
     paths:
       - public/
   script:
+    - echo "---------------------------------"
+    - echo "---------------------------------"
+    - echo "---------------------------------"
     - echo 'building storybook/$CI_COMMIT_REF_SLUG'
+    - echo '$CI_COMMIT_REF_SLUG'
+    - echo "---------------------------------"
+    - echo "---------------------------------"
+    - echo "---------------------------------"
     - yarn build
   environment:
     name: storybook/$CI_COMMIT_REF_SLUG
